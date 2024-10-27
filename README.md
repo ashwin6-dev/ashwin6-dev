@@ -20,9 +20,10 @@
 **Languages/Tools**: Python, Numpy, Pandas, TensorFlow, Scikit-Learn  
 Developed a sophisticated simulator for cricket matches with over 100,000 ball-by-ball data points. Using a neural network model, this project predicts individual player stats and match outcomes with an impressive accuracy, averaging within 7.5% of real scores.
 
-### **🌐 HTTP Load Balancer from Scratch**  
+
+### **🧮 Autograd Framework with JIT Compilation**  
 **Languages/Tools**: C++  
-Designed a multi-threaded HTTP load balancer that maintains server health and dynamically distributes traffic across backend servers. Implemented consistent hashing to ensure balanced and efficient server allocation. This project showcases a robust understanding of networking and systems programming.
+Developed an autograd framework that leverages JIT compilation to transform computational graphs into optimized x86-64 assembly code. This framework is being extended to support neural network operations, with a focus on computational efficiency through graph traversal and binary encoding. Everything written by hand (no third-party dependencies!)
 
 ### **🧠 Focus Monitoring Device**  
 **Languages/Tools**: Python, Scikit-Learn, Numpy, Pandas, Vue.js, Flask  
@@ -32,10 +33,10 @@ Created a brain-wearable device to track user focus, recognized with a £2000 Fi
 **Languages/Tools**: Python, Numpy  
 Built a deep learning library supporting RNN, CNN, and Linear layers, complete with automatic differentiation. Applied it to achieve 96% accuracy in handwritten digit recognition. This project honed my skills in machine learning and graph-based algorithm design.
 
-### **🧮 Autograd Framework with JIT Compilation (Work-in-Progress)**  
-**Languages/Tools**: C++  
-Developed an autograd framework that leverages JIT compilation to transform computational graphs into optimized x86-64 assembly code. This framework is being extended to support neural network operations, with a focus on computational efficiency through graph traversal and binary encoding. Everything written by hand (no third-party dependencies!)
 
+### **🌐 HTTP Load Balancer from Scratch**  
+**Languages/Tools**: C++  
+Designed a multi-threaded HTTP load balancer that maintains server health and dynamically distributes traffic across backend servers. Implemented consistent hashing to ensure balanced and efficient server allocation. This project showcases a robust understanding of networking and systems programming.
 ---
 
 ## 📫 Get in Touch
