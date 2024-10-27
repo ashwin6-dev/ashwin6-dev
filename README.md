@@ -32,11 +32,6 @@ Created a brain-wearable device to track user focus, recognized with a £2000 Fi
 ### **📚 Deep Learning Library from Scratch**  
 **Languages/Tools**: Python, Numpy  
 Built a deep learning library supporting RNN, CNN, and Linear layers, complete with automatic differentiation. Applied it to achieve 96% accuracy in handwritten digit recognition. This project honed my skills in machine learning and graph-based algorithm design.
-
-
-### **🌐 HTTP Load Balancer from Scratch**  
-**Languages/Tools**: C++  
-Designed a multi-threaded HTTP load balancer that maintains server health and dynamically distributes traffic across backend servers. Implemented consistent hashing to ensure balanced and efficient server allocation. This project showcases a robust understanding of networking and systems programming.
 ---
 
 ## 📫 Get in Touch
