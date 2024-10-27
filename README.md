@@ -4,14 +4,12 @@
 💻 **Tech Enthusiast | Aspiring Software Engineer** <br>
 🔍 **Currently Seeking Opportunities in Tech**
 
-I'm a Computer Science student passionate about systems programming, AI, and optimization. Currently, I'm working on an autograd framework with JIT compilation to improve computational efficiency. My hands-on experience spans from building a deep learning library to designing a unique focus-monitoring device, allowing me to develop a solid foundation in data science, software engineering, and systems design.
-
 ---
 
 ## 🚀 About Me
 
 - 🏫 **Education**: BEng Computing (1st Class), Imperial College London (2023 - 2026)
-- 💼 **Internships**: Experience as a Software Engineering Intern, collaborating in Agile environments and developing scalable, high-impact features.
+- 💼 **Internships**: Experience as a Software Engineering Intern at TopScore Tech, collaborating in Agile environments and developing scalable, high-impact features.
 - 🌐 **Tech Stack**: Python, C/C++, Kotlin, SQL, JavaScript, HTML/CSS, React, Node.js, Vue.js, Flask, TensorFlow, Scikit-Learn, Pandas, Numpy.
 
 ---
