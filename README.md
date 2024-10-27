@@ -29,9 +29,11 @@ Developed an autograd framework that leverages JIT compilation to transform comp
 **Languages/Tools**: Python, Scikit-Learn, Numpy, Pandas, Vue.js, Flask  
 Created a brain-wearable device to track user focus, recognized with a £2000 Finalist prize in the Imperial Advanced Hackspace competition. Developed an ML model to calculate focus levels of a user given the realtime brainwave data from the headset.
 
-### **📚 Deep Learning Library from Scratch**  
+### **📚 Deep Learning Library from Scratch**
 **Languages/Tools**: Python, Numpy
 Built a deep learning library supporting RNN, CNN, and Linear layers, complete with automatic differentiation. Applied it to achieve 96% accuracy in handwritten digit recognition.
+
+###
 ---
 
 ## 📫 Get in Touch
@@ -39,5 +41,3 @@ Built a deep learning library supporting RNN, CNN, and Linear layers, complete w
 - 📧 [ashwinbose6@gmail.com](mailto:ashwinbose6@gmail.com)
 - 🌐 [LinkedIn](https://www.linkedin.com/in/ashwin-bose-851632282/)
 - 💼 Open to tech internships and collaborative opportunities
-
---
