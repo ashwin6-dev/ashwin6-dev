@@ -1,4 +1,4 @@
-# 👋 Hi, I'm Ashwin Bose!
+# 👋 Hi, I'm Ashwin!
 
 🎓 **CS Student @ Imperial College London** <br>
 💻 **Tech Enthusiast | Aspiring Software Engineer** <br>
