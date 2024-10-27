@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ashwin Bose | Portfolio</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Layout */
+    body {
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+      background-color: #f4f4f4;
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .header h1 {
+      font-size: 2rem;
+      color: #444;
+    }
+
+    .header p {
+      font-size: 1rem;
+      color: #555;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      color: #444;
+      border-bottom: 2px solid #e07a5f;
+      padding-bottom: 5px;
+      margin-bottom: 10px;
+    }
+
+    /* Section layout */
+    .section {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    /* Grid for compact layout */
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    .content {
+      margin-top: 10px;
+      font-size: 0.95rem;
+    }
+
+    .project, .experience-item, .achievement-item {
+      padding: 10px;
+      border-left: 4px solid #e07a5f;
+      background-color: #ffffff;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .project h3, .experience-item h3, .achievement-item h3 {
+      font-size: 1.1rem;
+      color: #e07a5f;
+      margin-bottom: 5px;
+    }
+
+    .project p, .experience-item p, .achievement-item p {
+      font-size: 0.9rem;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    .skills-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skills-list li {
+      padding: 8px 12px;
+      background-color: #3d405b;
+      color: #fff;
+      border-radius: 20px;
+      font-size: 0.85rem;
+    }
+
+    .contact-info {
+      text-align: center;
+      font-size: 1rem;
+      margin-top: 10px;
+    }
+
+    .contact-info a {
+      color: #e07a5f;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Header Section -->
+    <div class="header">
+      <h1>Ashwin Bose</h1>
+      <p>CS Student @ Imperial College London</p>
+    </div>
+
+    <!-- Education & Experience Section in Grid -->
+    <div class="section grid">
+      <div>
+        <h2 class="section-title">Education</h2>
+        <div class="content">
+          <p><strong>Imperial College London</strong> - BEng Computing (1st Class) <br> Sept. 2023 - Jun. 2026</p>
+        </div>
+      </div>
+      <div>
+        <h2 class="section-title">Experience</h2>
+        <div class="experience-item">
+          <h3>Software Engineering Intern</h3>
+          <p><strong>TopScore Technologies</strong><br>Developed optimized web app features in Agile teams.</p>
+          <p>Applied best practices in Git and Trello for code management.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Projects Section in Grid -->
+    <div class="section">
+      <h2 class="section-title">Projects</h2>
+      <div class="grid">
+        <div class="project">
+          <h3>Cricket Match Modeling</h3>
+          <p>Built a simulator for cricket matches using Python, TensorFlow, and Scikit-Learn with neural network-based predictions within 7.5% accuracy of real scores.</p>
+        </div>
+        <div class="project">
+          <h3>Autograd Framework with JIT Compilation</h3>
+          <p>Developed an autograd framework that leverages JIT compilation to transform computational graphs into optimized x86-64 assembly code, with no third-party dependencies.</p>
+        </div>
+        <div class="project">
+          <h3>Focus Monitoring Device</h3>
+          <p>Created a brain-wearable device to track user focus, recognized with a £2000 Finalist prize in the Imperial Advanced Hackspace competition.</p>
+        </div>
+        <div class="project">
+          <h3>Deep Learning Library</h3>
+          <p>Created a deep learning library from scratch, achieving 96% accuracy in handwritten digit recognition tasks.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Achievements & Awards Section -->
+    <div class="section">
+      <h2 class="section-title">Achievements & Awards</h2>
+      <div class="achievement-item">
+        <p>🏆 <strong>Gold Medals</strong> in all UKMT Challenges and qualified for the BMO</p>
+      </div>
+      <div class="achievement-item">
+        <p>💷 <strong>£2000 Prize</strong> in the Imperial Advanced Hackspace competition for being a finalist</p>
+      </div>
+      <div class="achievement-item">
+        <p>🌟 <strong>Founder & Head</strong> of the Machine Learning Society at school, leading initiatives to bring machine learning insights to students.</p>
+      </div>
+    </div>
+
+    <!-- Skills Section -->
+    <div class="section">
+      <h2 class="section-title">Technical Skills</h2>
+      <div class="content">
+        <ul class="skills-list">
+          <li>Python</li>
+          <li>C/C++</li>
+          <li>Kotlin</li>
+          <li>SQL</li>
+          <li>JavaScript</li>
+          <li>HTML/CSS</li>
+          <li>React</li>
+          <li>Node.js</li>
+          <li>Vue.js</li>
+          <li>Flask</li>
+          <li>TensorFlow</li>
+          <li>Scikit-Learn</li>
+          <li>Pandas</li>
+          <li>Numpy</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="contact-info">
+      <p>📧 <a href="mailto:ashwinbose6@gmail.com">ashwinbose6@gmail.com</a> | 🌐 <a href="https://www.linkedin.com/in/ashwin-bose-851632282/">LinkedIn</a> | 🖥️ <a href="https://github.com/ashwin6-dev">Github</a></p>
+    </div>
+
+  </div>
+
+</body>
+</html>
