@@ -4,7 +4,7 @@
 💻 **Tech Enthusiast | Aspiring Software Engineer** <br>
 🔍 **Currently Seeking Opportunities in Tech** <br>
 
-Please note this Github profile is not used for any univserity degree work (I use the College provided Gitlab account for that)
+Please note this Github profile is not used for any university degree work (I use the College provided Gitlab account for that)
 
 ---
 
