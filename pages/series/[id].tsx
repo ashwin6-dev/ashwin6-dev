@@ -2,10 +2,14 @@ import {getAllSeriesIds, getSeries} from "@/lib/posts";
 import "@/app/globals.css";
 import PostCard from "@/components/PostCard";
 import Link from "next/link";
+import Head from "next/head";
 
 export default function Series({ series }) {
     return (
         <div className="mx-auto w-3/4">
+            <Head>
+                <title>ashwin bose - { series.name }</title>
+            </Head>
             <div className="my-8">
                 <Link href={`/`}
                       className="text-sm mb-4 underline">Back to Home</Link>

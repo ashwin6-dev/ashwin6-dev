@@ -4,10 +4,14 @@ import ReactMarkdown from 'react-markdown';
 import Link from "next/link";
 import Image from 'next/image';
 import PostTemplate from "@/components/PostTemplate";
+import Head from "next/head";
 
 export default function Post({ post, series }: {  post: IPost, series: SeriesData }) {
     return (
         <PostTemplate series={series} currentPost={post}>
+            <Head>
+                <title>ashwin bose - { post.title }</title>
+            </Head>
             <div className="my-8">
                     <Link href={`/series/${post.series}`}
                           className="text-sm mb-4 underline">Back to series</Link>

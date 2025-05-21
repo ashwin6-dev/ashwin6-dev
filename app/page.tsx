@@ -1,5 +1,6 @@
 import {getSeriesData} from "@/lib/posts";
 import SeriesCard from "@/components/SeriesCard";
+import Head from "next/head";
 
 export default function Home() {
   const seriesData = getSeriesData();
