@@ -1,6 +1,14 @@
 import Link from "next/link";
+import {Post, SeriesData} from "@/lib/posts";
+import {ReactNode} from "react";
 
-export default function PostTemplate({ series, currentPost, children }) {
+interface PostTemplateProps {
+    series: SeriesData
+    currentPost: Post
+    children: ReactNode
+}
+
+export default function PostTemplate({ series, currentPost, children }: PostTemplateProps) {
     return (
         <div className="grid grid-cols-10">
             <div className="col-span-3 py-8">

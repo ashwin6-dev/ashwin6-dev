@@ -87,7 +87,8 @@ export function getPostsDataFromDir(dir: string): PostData[] {
 export function getAllPostIds(): { params: { id: string } }[] {
     const fileNames = fs.readdirSync(postsDir)
         .map(dir => fs.readdirSync(path.join(postsDir, dir)))
-        .flat();
+        .flat()
+        .filter(filename => filename != "description.txt");
 
     return fileNames.map((fileName) => {
         return {
@@ -119,5 +120,5 @@ export function getPost(id: string): Post {
         } as Post;
     }
 
-    return { id: '', content: '', date: '', description: '', title: '' }
+    return { id: '', content: '', date: '', description: '', title: '', series: '', part: 0 }
 }

@@ -1,11 +1,11 @@
-import {getAllPostIds, getAllSeriesIds, getPost, getSeries, Post, SeriesData} from "@/lib/posts";
+import {getAllPostIds, getAllSeriesIds, getPost, getSeries, Post as IPost, SeriesData} from "@/lib/posts";
 import "@/app/globals.css";
 import ReactMarkdown from 'react-markdown';
 import Link from "next/link";
 import Image from 'next/image';
 import PostTemplate from "@/components/PostTemplate";
 
-export default function Post({ post, series }: {  post: Post, series: SeriesData }) {
+export default function Post({ post, series }: {  post: IPost, series: SeriesData }) {
     return (
         <PostTemplate series={series} currentPost={post}>
             <div className="my-8">
