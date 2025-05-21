@@ -108,7 +108,7 @@ connection and, if it is able to, the server responds, successfully completing t
 
 The handshake follows these steps:
 
-### 1. Client Request
+**1. Client Request**
 
 The client sends a HTTP GET request to a WebSocket URI. WebSocket URIs look the same to HTTP URIs, except they begin 
 with a ```ws:``` or ```wss:``` (secure web socket) instead of ```http:``` or ```https:```
@@ -126,7 +126,7 @@ base64-encoded. Its use will be explained later.
 ```Sec-WebSocket-Version: 13``` Currently, the only accepted version of the WebSocket protocol is 13. No other version 
 will work.
 
-### 2. Server Response
+**2. Server Response**
 
 The server response is a HTTP 101 Switching Protocols response and includes the the following headers:
 
@@ -143,3 +143,78 @@ connections, which could lead to unpredictable behaviour.
 After the server response, the handshake is complete and the client and server have agreed to use the existing TCP/IP 
 connection established for the HTTP request as a WebSocket connection. Data can flow both ways in this connection via a 
 simple framed protocol.
+
+### WebSocket Frames
+
+In the WebSocket protocol, data is split into **frames** which can be sent by both the client and the server.
+
+```txt
+0                   1                   2                   3
+0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-+-+-+-+-------+-+-------------+-------------------------------+
+|F|R|R|R| opcode|M| Payload len |    Extended payload length    |
+|I|S|S|S|  (4)  |A|     (7)     |             (16/64)           |
+|N|V|V|V|       |S|             |   (if payload len==126/127)   |
+| |1|2|3|       |K|             |                               |
++-+-+-+-+-------+-+-------------+ - - - - - - - - - - - - - - - +
+|     Extended payload length continued, if payload len == 127  |
++ - - - - - - - - - - - - - - - +-------------------------------+
+|                               |Masking-key, if MASK set to 1  |
++-------------------------------+-------------------------------+
+| Masking-key (continued)       |          Payload Data         |
++-------------------------------- - - - - - - - - - - - - - - - +
+:                     Payload Data continued ...                :
++ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +
+|                     Payload Data continued ...                |
++---------------------------------------------------------------+
+```
+
+Taken from the [RFC 6455](https://datatracker.ietf.org/doc/html/rfc6455#section-5.2) (where you can find full details 
+about this), this is what a WebSocket frame looks like.
+
+The important parts of the frame to highlight are:
+* **FIN bit (bit 0)**: Indicates whether it's the last message of a series. If it is 0, the recipient sits and waits for more 
+messages otherwise it considers the message complete.
+* **RSV 1,2,3 (bits 1,2,3)**: Utilised for extensions, can be ignored.
+* **Opcode (bits 4–7)**: Specifies how to interpret the payload data. 0x0 for frames that continue payloads from previous 
+frames, 0x1 for UTF-8 encoded text payloads, 0x2 for binary payloads (interpret as is), 0x8 for closing the connection, 
+0x09 and 0x0a for "ping" and "pong" which serve as heartbeat mechanisms to check if the connection is still alive (pongs
+respond to pings and vice versa). Other opcodes can be ignored.
+* **Mask (bit 8)**: Setting this bit to 1 enables masking. WebSockets require that payloads should be obfuscated with a 
+random key (the mask) chosen by the client. The masking key is XORd with the payload before sending it off.
+* **Payload Length (bits 9–15)**: Interpreted as an unsigned integer for payload length. However, if the integer represented 
+is 126, then the next 16 bits represent the payload length. If the integer represented is 127, then the next 64 bits 
+represent to payload length.
+* **Masking Key**: The 4 bytes after the payload length represent the masking key to be used.
+* The rest of the bytes contain the payload itself.
+
+### Closing the Connection
+
+A closing frame is sent (opcode ```0x08```) to close a connection. If either side of a connection receives a close frame
+, it must send a close frame in response. Once the close frame has been received by both parties, the server initiates 
+closing the TCP connection.
+
+
+That was an overview of how the WebSocket protocol works! In practice, you don't have to worry about these granular 
+details as there are many libraries available that take care of handling these connections for us.
+
+## The Need For WebSockets in Mini Kahoot
+
+Mini Kahoot requires WebSockets for the following features:
+* **Live Question Delivery (Server to Clients)**: When the host advances to the next question, the server needs to 
+immediately push this information to all connected players simultaneously.
+* **Real-Time Answer Submission (Clients to Server)**: Players need to submit their answers, and their devices need to 
+instantly transmit these responses to the server for tracking and scoring.
+* **Instant Score Updates (Server to Clients)**: After each question, the server needs to immediately broadcast the 
+updated scores to all players, ensuring everyone sees the dynamic standings in real-time.
+* **Game Synchronisation (Server to Clients)**: Events like the start of a new round, the display of results, and the 
+end of the game require the server to push notifications to all participants instantly to maintain perfect synchronisation.
+* **Host Controls (Clients to Server & Server to Clients)**: Actions taken by the host (e.g., starting the game, 
+moving to the next question) need to be transmitted instantly from the host's client to the server, which then needs to 
+immediately reflect these changes on all player screens.
+
+***
+
+
+Now equipped with the knowledge of how realtime communication works over the web, the next post will cover the backend 
+REST API design and WebSocket server design to handle the realtime features.
