@@ -51,11 +51,19 @@ So, the userflow for live games would like something like this:
 
 ![Live Game Userflow](/assets/project-breakdown/live-game-userflow.png)
 
+## Question API
+
+
+To support this, the system must provide an internal API with the following capabilities:
+* Add new questions to the database (used internally by administrators or automated tools).
+* Retrieve questions based on a natural language description (used during game creation to match relevant content).
+
 ## Overall Workflow
 
 With each component workflow now covered, it is quite simple to put together the overall workflow of the application.
 
 ![Overall Userflow](/assets/project-breakdown/overall-user-workflow.png)
+
 
 ## Feature Specification
 
@@ -66,7 +74,7 @@ specification will serve as the technical foundation for implementation decision
 
 * **Quiz Description Input:** Hosts should be able to enter descriptions for the quiz they want to create.
 * **Question Fetching:** Based on the description, the system must be able to fetch relevant questions from the 
-question database.
+question database (will use the Question API).
 * **Question Selection:** Hosts can select/de-select questions from the fetched list before creating the game.
 * **Game PIN Generation:** The system should be able to generate unique game codes for each game.
 
@@ -89,6 +97,16 @@ waiting for the game to start see this page.
 * **Post-Question Feedback:** After each question, players should see how they performed and where they stand.
 * **Leaderboard Tracking:** A running leaderboard should be maintained and shown after each round.
 * **Final Results Screen:** When the game ends, players should see their final positions.
+
+### 5. Question API
+
+Although users won’t be able to create their own questions in Mini Kahoot, the platform still requires a set of
+questions to function effectively.
+
+To support this, the system must provide an internal API with the following capabilities:
+* **Question Creation:** Add new questions to the database (used internally by administrators or automated tools).
+* **Question Fetching:** Retrieve questions based on a natural language description (used during game creation to match 
+relevant content).
 
 This feature specification provides an explicit "what" for this project. I can begin to design the architecture and 
 think about how to implement this much easier now, having well-defined, concrete parts of the application laid in front 

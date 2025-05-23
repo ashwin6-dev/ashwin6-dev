@@ -198,6 +198,20 @@ closing the TCP connection.
 That was an overview of how the WebSocket protocol works! In practice, you don't have to worry about these granular 
 details as there are many libraries available that take care of handling these connections for us.
 
+### Sending Data Over WebSockets
+
+If the protocol connection is no longer HTTP, how is data sent between the client and server?
+
+Instead of requests, messages are passed between parties through **events**. Each message over a WebSocket connection is
+structured as an event, identified with a unique name with relevant data.  The receiving party listens for specific 
+event names, allowing it to handle incoming data appropriately based on the type of event received.
+
+Events are classed into two types:
+* **Client-to-Server events:** Events triggered by the client and sent to the server. These can be used for user actions 
+such as joining a game or submitting an answer.
+* **Server-to-Client events:** Emitted by the server to connected clients. These can be for updates like game state 
+changes, player notifications or response feedback.
+
 ## The Need For WebSockets in Mini Kahoot
 
 Mini Kahoot requires WebSockets for the following features:
