@@ -227,8 +227,7 @@ end of the game require the server to push notifications to all participants ins
 moving to the next question) need to be transmitted instantly from the host's client to the server, which then needs to 
 immediately reflect these changes on all player screens.
 
-***
+## What's Next?
 
-
-Now equipped with the knowledge of how realtime communication works over the web, the next post will cover the backend 
-REST API design and WebSocket server design to handle the realtime features.
+Now equipped with the knowledge of how realtime communication works over the web, the next posts will cover the
+database design, backend REST API design and WebSocket server design to handle the realtime features.

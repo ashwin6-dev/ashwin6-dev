@@ -112,5 +112,7 @@ This feature specification provides an explicit "what" for this project. I can b
 think about how to implement this much easier now, having well-defined, concrete parts of the application laid in front 
 of me.
 
+## What's Next?
+
 In the next few posts, I’ll dive into the design of Mini Kahoot’s backend and explore the key concepts that drive it, 
 explaining how it’s built and why it works the way it does.
