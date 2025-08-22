@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@import "katex/dist/katex.min.css";
+
+html {
+  color-scheme: dark;
+  background: #18181b;
+}
+
+body {
+  background: #18181b;
+  color: #fff;
+}
