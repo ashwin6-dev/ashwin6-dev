@@ -1,1 +1,0 @@
-Building a Kahoot clone using React, NestJS, MongoDB and Huggingface.
