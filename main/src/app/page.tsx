@@ -12,8 +12,8 @@ export default function Home() {
       </div>
       <h2 className="text-2xl font-semibold mb-6">Articles by Series</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        {series.map((s) => {
-          const articles = getArticlesInSeries(s);
+        {series.map(async (s) => {
+          const articles = await getArticlesInSeries(s);
           // Capitalize and space series name
           const displayName = s.replace(/[-_]/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
           return (

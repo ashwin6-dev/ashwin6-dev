@@ -15,15 +15,13 @@ export function getSeriesList(contentDir = "content") {
   return fs.readdirSync(contentDir).filter((f) => fs.statSync(path.join(contentDir, f)).isDirectory());
 }
 
-export function getArticlesInSeries(series: string, contentDir = "content"): Article[] {
+export async function getArticlesInSeries(series: string, contentDir = "content"): Promise<Article[]> {
   const dir = path.join(contentDir, decodeURIComponent(series));
-
-  return fs
-    .readdirSync(dir)
-    .filter((f) => f.endsWith(".md"))
-    .map((file) => {
+  const files = (await fs.promises.readdir(dir)).filter((f) => f.endsWith(".md"));
+  const articles = await Promise.all(
+    files.map(async (file) => {
       const filePath = path.join(dir, file);
-      const raw = fs.readFileSync(filePath, "utf-8");
+      const raw = await fs.promises.readFile(filePath, "utf-8");
       const { data, content } = matter(raw);
       return {
         title: data.title || file,
@@ -34,13 +32,18 @@ export function getArticlesInSeries(series: string, contentDir = "content"): Art
         content,
       };
     })
-    .sort((a, b) => (a.date < b.date ? 1 : -1));
+  );
+  return articles.sort((a, b) => (a.date < b.date ? 1 : -1));
 }
 
-export function getArticle(series: string, slug: string, contentDir = "content"): Article | null {
+export async function getArticle(series: string, slug: string, contentDir = "content"): Promise<Article | null> {
   const filePath = path.join(contentDir, series, `${slug}.md`);
-  if (!fs.existsSync(filePath)) return null;
-  const raw = fs.readFileSync(filePath, "utf-8");
+  try {
+    await fs.promises.access(filePath);
+  } catch {
+    return null;
+  }
+  const raw = await fs.promises.readFile(filePath, "utf-8");
   const { data, content } = matter(raw);
   return {
     title: data.title || slug,

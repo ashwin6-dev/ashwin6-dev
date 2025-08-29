@@ -2,12 +2,14 @@ import { getArticlesInSeries, Article } from "../../lib/content";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-export default function SeriesPage({ params }: { params: { series: string } }) {
-  params.series = decodeURIComponent(params.series);
-  const articles = getArticlesInSeries(params.series);
+export default async function SeriesPage({ params }: { params: { series: string } }) {
+  let { series } = await params;
+  series = decodeURIComponent(series);
+
+  const articles = await getArticlesInSeries(series);
   if (!articles.length) return notFound();
   // Capitalize and space series name
-  const displayName = params.series.replace(/[-_]/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+  const displayName = series.replace(/[-_]/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
   return (
     <div className="max-w-2xl mx-auto py-8">
       <Link href="/" className="text-zinc-400 hover:text-yellow-400 text-sm mb-4 inline-block">← Back to all series</Link>
@@ -19,7 +21,7 @@ export default function SeriesPage({ params }: { params: { series: string } }) {
           return (
             <Link
               key={a.slug}
-              href={`/${params.series}/${a.slug}`}
+              href={`/${series}/${a.slug}`}
               className="block bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-3 group transition-colors hover:border-yellow-400"
             >
               <div className="text-lg font-medium transition-colors group-hover:text-yellow-400 text-inherit">{displayTitle}</div>
