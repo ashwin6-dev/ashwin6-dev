@@ -7,7 +7,7 @@ During my summer internship, I conducted research on AI maintainability and had 
 
 However, as my internship came to an end, I was thinking about how much more impactful it would've been to test my research on text embeddings given the prominence of LLMs today. Since text embeddings aren't as straightforward to interpret, I wanted to figure out a method to reveal what a given embedding semantically means in a user-given context. And, hopefully, I'd build a tool that'll enable people to interpret text embeddings using this method.
 
-That brings me to the purpose of this series: a **research log**. As I learn and work towards this idea, I want to document the journey. My hope is that it not only helps me stay on track, but also provides something useful and interesting for anyone else who’s curious about the process.
+That brings me to the purpose of this series: a **research log**. As I learn and work towards this idea, I want to document the journey. My hope is that it not only helps me stay on track, but also provides something useful and interesting for anyone else whos curious about the process.
 
 # The Idea
 
@@ -31,6 +31,7 @@ With a sufficiently labeled dataset, these directions could be determined in a f
 
 # Next Steps
 
-The immediate next step is to break the problem down into smaller sub-questions that can guide the very first phase of research. At this stage, the focus isn’t on running full experiments, but on hypothesizing what “interpretable vector directions” should look like and building some intuition for how they might behave in the embedding space.
+The immediate next step is to break the problem down into smaller sub-questions that can guide the very first phase of research. At this stage, the focus isnt on running full experiments, but on hypothesizing what interpretable vector directions should look like and building some intuition for how they might behave in the embedding space.
 
-Once I’ve settled on a set of guiding sub-questions, I’ll start looking into existing methods; both to see what can be applied directly and to learn from approaches that have tackled similar problems in different contexts. The aim is to use these early explorations as stepping stones, gradually shaping a clearer picture of what’s possible and what’s worth pursuing.
+Once Ive settled on a set of guiding sub-questions, Ill start looking into existing methods; both to see what can be applied directly and to learn from approaches that have tackled similar problems in different contexts. The aim is to use these early explorations as stepping stones, gradually shaping a clearer picture of whats possible and whats worth pursuing.
+
