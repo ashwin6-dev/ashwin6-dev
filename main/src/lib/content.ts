@@ -12,10 +12,12 @@ export type Article = {
 };
 
 export function getSeriesList(contentDir = "content") {
+  contentDir = path.join(process.cwd(), contentDir);
   return fs.readdirSync(contentDir).filter((f) => fs.statSync(path.join(contentDir, f)).isDirectory());
 }
 
 export async function getArticlesInSeries(series: string, contentDir = "content"): Promise<Article[]> {
+  contentDir = path.join(process.cwd(), contentDir);
   const dir = path.join(contentDir, decodeURIComponent(series));
   const files = (await fs.promises.readdir(dir)).filter((f) => f.endsWith(".md"));
   const articles = await Promise.all(
@@ -36,7 +38,8 @@ export async function getArticlesInSeries(series: string, contentDir = "content"
   return articles.sort((a, b) => (a.date < b.date ? 1 : -1));
 }
 
-export async function getArticle(series: string, slug: string, contentDir = "public/content"): Promise<Article | null> {
+export async function getArticle(series: string, slug: string, contentDir = "content"): Promise<Article | null> {
+  contentDir = path.join(process.cwd(), contentDir);
   const filePath = path.join(contentDir, series, `${slug}.md`);
   try {
     await fs.promises.access(filePath);
