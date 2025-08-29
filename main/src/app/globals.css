@@ -1,5 +1,4 @@
 @import "tailwindcss";
-
 @import "katex/dist/katex.min.css";
 
 html {
@@ -10,4 +9,9 @@ html {
 body {
   background: #18181b;
   color: #fff;
+}
+
+.katex, .katex * {
+  all: revert;
+  font-family: inherit !important;
 }

@@ -5,12 +5,14 @@ import { unified } from "unified";
 import remarkParse from "remark-parse";
 import remarkMath from "remark-math";
 import remarkRehype from "remark-rehype";
+import remarkGfm from "remark-gfm";
 import rehypeKatex from "rehype-katex";
 import rehypeStringify from "rehype-stringify";
 import "katex/dist/katex.min.css";
 import Link from "next/link";
 
 export default async function ArticlePage({ params }: { params: { series: string; slug: string } }) {
+  params.series = decodeURIComponent(params.series);
   const article = getArticle(params.series, params.slug);
   if (!article) return notFound();
 
@@ -18,10 +20,11 @@ export default async function ArticlePage({ params }: { params: { series: string
 
   const processed = await unified()
     .use(remarkParse)
+    .use(remarkGfm)
     .use(remarkMath)
-    .use(remarkRehype)
+    .use(remarkRehype, { allowDangerousHtml: true })
     .use(rehypeKatex)
-    .use(rehypeStringify)
+    .use(rehypeStringify, { allowDangerousHtml: true })
     .process(article.content);
 
   return (
@@ -46,7 +49,7 @@ export default async function ArticlePage({ params }: { params: { series: string
           })}
         </div>
       </aside>
-      <div className="flex-1 min-w-0 flex flex-col">
+      <div className="flex-1 min-w-0 flex flex-col katex">
         <div className="w-full max-w-2xl">
           <Link href={`/${params.series}`} className="text-zinc-400 hover:text-yellow-400 text-sm mb-4 inline-block">← Back to series</Link>
           <h1 className="text-2xl font-bold mb-2">{article.title}</h1>

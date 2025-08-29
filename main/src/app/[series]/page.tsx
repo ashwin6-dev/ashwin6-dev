@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 export default function SeriesPage({ params }: { params: { series: string } }) {
+  params.series = decodeURIComponent(params.series);
   const articles = getArticlesInSeries(params.series);
   if (!articles.length) return notFound();
   // Capitalize and space series name

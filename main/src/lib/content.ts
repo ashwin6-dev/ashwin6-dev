@@ -16,7 +16,8 @@ export function getSeriesList(contentDir = "content") {
 }
 
 export function getArticlesInSeries(series: string, contentDir = "content"): Article[] {
-  const dir = path.join(contentDir, series);
+  const dir = path.join(contentDir, decodeURIComponent(series));
+
   return fs
     .readdirSync(dir)
     .filter((f) => f.endsWith(".md"))
