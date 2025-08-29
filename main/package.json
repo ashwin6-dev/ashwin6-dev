@@ -4,12 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build --turbopack",
+    "build": "next build --turbopack && node copy-assets.js",
     "start": "next start",
     "lint": "eslint"
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.16",
+    "fs-extra": "^11.3.1",
     "gray-matter": "^4.0.3",
     "katex": "^0.16.22",
     "next": "15.5.0",
