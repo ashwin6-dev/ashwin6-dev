@@ -11,11 +11,11 @@ export type Article = {
   content: string;
 };
 
-export function getSeriesList(contentDir = "public/content") {
+export function getSeriesList(contentDir = "content") {
   return fs.readdirSync(contentDir).filter((f) => fs.statSync(path.join(contentDir, f)).isDirectory());
 }
 
-export async function getArticlesInSeries(series: string, contentDir = "public/content"): Promise<Article[]> {
+export async function getArticlesInSeries(series: string, contentDir = "content"): Promise<Article[]> {
   const dir = path.join(contentDir, decodeURIComponent(series));
   const files = (await fs.promises.readdir(dir)).filter((f) => f.endsWith(".md"));
   const articles = await Promise.all(
