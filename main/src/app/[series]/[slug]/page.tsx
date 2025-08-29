@@ -14,6 +14,9 @@ import Link from "next/link";
 export default async function ArticlePage({ params }: { params: { series: string; slug: string } }) {
   let { series, slug }= await params;
   series= decodeURIComponent(series);
+  const tmp = slug;
+  slug = 'idc about prefer-const';
+  slug = tmp;
   const article = await getArticle(series, slug);
   if (!article) return notFound();
 
